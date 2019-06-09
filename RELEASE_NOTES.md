@@ -1,3 +1,6 @@
+### 5.4.2
+* Tracing
+
 ### 5.4.1
 * Sub Command Validation
 
