@@ -72,7 +72,7 @@ let postProcessResults (argInfo : UnionArgInfo) (ignoreMissingMandatory : bool)
                 unionArg.Cases.Value 
                 |> Array.collect (fun case -> 
                     if case.IsMandatory.Value && not ignoreMissingMandatory then
-                        [|(error unionArg ErrorCode.PostProcess "missing parameter '%s'." case.Name.Value)|]
+                        [|(error unionArg ErrorCode.PostProcess "PostProcess: missing parameter '%s'." case.Name.Value)|]
                     else 
                         searchSub case)
             | _ -> [||]
@@ -84,7 +84,7 @@ let postProcessResults (argInfo : UnionArgInfo) (ignoreMissingMandatory : bool)
             | _ -> combined
 
         | [||] when caseInfo.IsMandatory.Value && not ignoreMissingMandatory ->
-            error argInfo ErrorCode.PostProcess "missing parameter '%s'." caseInfo.Name.Value
+            error argInfo ErrorCode.PostProcess "Global: missing parameter '%s'." caseInfo.Name.Value
         | _ -> combined
 
     {
@@ -93,3 +93,4 @@ let postProcessResults (argInfo : UnionArgInfo) (ignoreMissingMandatory : bool)
         UnrecognizedCliParseResults = match commandLineResults with Some clr -> clr.UnrecognizedCliParseResults | None -> []
         IsUsageRequested = commandLineResults |> Option.exists (fun r -> r.IsUsageRequested)
     }
+    
