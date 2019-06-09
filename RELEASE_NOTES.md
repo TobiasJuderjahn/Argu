@@ -1,3 +1,6 @@
+### 5.4.1
+* Sub Command Validation
+
 ### 5.4.0
 * Chain inner exceptions in ArguExceptions.
 
