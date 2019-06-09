@@ -383,8 +383,6 @@ let rec private preComputeUnionCaseArgInfo (stack : Type list) (helpParam : Help
             arguExn "CustomAssignment in '%O' not supported in subcommands." uci
         if isRest.Value then
             arguExn "Rest attribute in '%O' not supported in subcommands." uci
-        if isMandatory.Value then
-            arguExn "Mandatory attribute in '%O' not supported in subcommands." uci
         if isMainCommand.Value then
             arguExn "MainCommand attribute in '%O' not supported in subcommands." uci
         if isInherited.Value then
